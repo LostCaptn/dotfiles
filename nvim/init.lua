@@ -1,7 +1,7 @@
 require 'core.options'
 require 'core.keymaps'
-
 vim.opt.termguicolors = true
+vim.opt.conceallevel = 1
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
@@ -20,6 +20,7 @@ require('lazy').setup {
     require 'plugins.bufferline',
     require 'plugins.treesitter',
     require 'plugins.telescope',
+    require 'plugins.nvim-java',
     require 'plugins.lsp',
     require 'plugins.autocompletion',
     require 'plugins.none-ls',
@@ -29,5 +30,12 @@ require('lazy').setup {
     require 'plugins.misc',
     require 'plugins.code-runner',
     require 'plugins.snacks',
+    require 'plugins.obsidian',
+    require 'plugins.render-markdown',
   },
 }
+config = function()
+  require('plugins.obsidian').setup {
+    ui = { enable = false },
+  }
+end

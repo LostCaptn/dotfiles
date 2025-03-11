@@ -5,6 +5,7 @@ return { -- LSP Configuration & Plugins
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
+    'mfussenegger/nvim-jdtls',
 
     -- Useful status updates for LSP.
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -195,8 +196,8 @@ return { -- LSP Configuration & Plugins
       },
       -- tailwindcss = {},
       -- graphql = {},
-      -- html = { filetypes = { 'html', 'twig', 'hbs' } },
-      -- cssls = {},
+      --html = { filetypes = { 'html', 'twig', 'hbs' } },
+      --cssls = {},
       -- ltex = {},
       -- texlab = {},
     }
@@ -221,6 +222,15 @@ return { -- LSP Configuration & Plugins
           -- certain features of an LSP (for example, turning off formatting for tsserver)
           server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
           require('lspconfig')[server_name].setup(server)
+        end,
+        jdtls = function()
+          require('java').setup {
+            -- Your custom jdtls settings goes here
+          }
+
+          require('lspconfig').jdtls.setup {
+            -- Your custom nvim-java configuration goes here
+          }
         end,
       },
     }
