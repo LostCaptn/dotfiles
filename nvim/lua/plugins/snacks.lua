@@ -38,7 +38,7 @@ return {
               action = function()
                 vim.ui.open 'https://github.com/notifications'
               end,
-              key = 'n',
+              key = 'N',
               icon = ' ',
               height = 5,
               enabled = true,
@@ -134,7 +134,7 @@ return {
       desc = 'Command History',
     },
     {
-      '<leader>n',
+      '<leader>N',
       function()
         Snacks.picker.notifications()
       end,

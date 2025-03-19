@@ -32,6 +32,7 @@ require('lazy').setup {
     require 'plugins.snacks',
     require 'plugins.obsidian',
     require 'plugins.render-markdown',
+    require 'plugins.noice',
   },
 }
 config = function()
