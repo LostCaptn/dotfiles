@@ -29,8 +29,7 @@ return {
       date_format = '%Y-%m-%d-%a',
       time_format = '%H:%M',
     },
-    -- see below for full list of options 👇
-    -- -- Optional, customize how note IDs are generated given an optional title.
+    -- see below for full list of opti  -- Optional, customize how note IDs are generated given an optional title.
     ---@param title string|?
     ---@return string
     note_id_func = function(title)
@@ -47,7 +46,21 @@ return {
           suffix = suffix .. string.char(math.random(65, 90))
         end
       end
-      return suffix
+      return tostring(os.time()) .. '-' .. suffix
+    end,
+
+    -- Optional, customize how note file names are generated given the ID, target directory, and title.
+    ---@param spec { id: string, dir: obsidian.Path, title: string|? }
+    ---@return string|obsidian.Path
+    note_path_func = function(spec)
+      -- Convert the title to a string (if not already)
+      local new_title = tostring(spec.title)
+
+      -- Manually construct the full path
+      local path_str = tostring(spec.dir) .. '/' .. new_title .. '.md'
+
+      -- Return the full path as a string (not obsidian.Path)
+      return path_str
     end,
   },
 }

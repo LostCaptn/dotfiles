@@ -35,6 +35,7 @@ require('lazy').setup {
     require 'plugins.noice',
   },
 }
+require('lspconfig').harper_ls.setup {}
 config = function()
   require('plugins.obsidian').setup {
     ui = { enable = false },
