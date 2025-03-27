@@ -53,7 +53,6 @@ return {
     ---@param spec { id: string, dir: obsidian.Path, title: string|? }
     ---@return string|obsidian.Path
     note_path_func = function(spec)
-      -- Convert the title to a string (if not already)
       local new_title = tostring(spec.title)
 
       -- Manually construct the full path
