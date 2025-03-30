@@ -33,6 +33,8 @@ require('lazy').setup {
     require 'plugins.obsidian',
     require 'plugins.render-markdown',
     require 'plugins.noice',
+    require 'plugins.image-nvim',
+    require 'plugins.img-clip',
   },
 }
 require('lspconfig').harper_ls.setup {}
