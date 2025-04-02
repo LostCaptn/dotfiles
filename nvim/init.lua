@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
   {
+    require 'plugins.luarocks',
     require 'plugins.neotree',
     require 'plugins.colortheme',
     require 'plugins.lualine',
@@ -37,7 +38,20 @@ require('lazy').setup {
     require 'plugins.img-clip',
   },
 }
-require('lspconfig').harper_ls.setup {}
+require('lspconfig').harper_ls.setup {
+  settings = {
+    ['harper-ls'] = {
+      linters = {
+        SentenceCapitalization = false,
+        SpellCheck = false,
+      },
+    },
+    markdown = {
+      IgnoreLinkTitle = false,
+    },
+  },
+}
+--
 config = function()
   require('plugins.obsidian').setup {
     ui = { enable = false },

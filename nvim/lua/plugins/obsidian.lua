@@ -62,4 +62,5 @@ return {
       return path_str
     end,
   },
+  vim.keymap.set('n', '<leader>ot', ':ObsidianTemplate', { noremap = true, silent = false }),
 }

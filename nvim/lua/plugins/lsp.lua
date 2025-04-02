@@ -229,7 +229,18 @@ return { -- LSP Configuration & Plugins
           }
 
           require('lspconfig').jdtls.setup {
-            -- Your custom nvim-java configuration goes here
+            -- Your custom nvim-java configurasettings = {
+            java = {
+              configuration = {
+                runtimes = {
+                  {
+                    name = 'JavaSE-23',
+                    path = '/usr/lib/jvm/jdk-23.0.2-oracle-x64/',
+                    default = true,
+                  },
+                },
+              },
+            },
           }
         end,
       },
